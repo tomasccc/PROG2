@@ -1,0 +1,11 @@
+CREATE PROCEDURE SP_CONSULTAR_PRESUPUESTOS
+	-- Add the parameters for the stored procedure here
+	@fecha_desde datetime,
+	@fecha_hasta datetime,
+	@cliente varchar(255)
+AS
+BEGIN
+	select * from T_PRESUPUESTOS
+	where (fecha between @fecha_desde and @fecha_hasta) and (cliente like '%'+@cliente+'%') and (fecha_baja is null)
+
+END

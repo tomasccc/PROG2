@@ -7,7 +7,7 @@
           <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="CARPINTERIA_2023ConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="CARPINTERIA_2023ConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Carpinteria1w2.Properties.Settings.GlobalReference.Default.CARPINTERIA_2023ConnectionString" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SP_CONSULTAR_PRODUCTOSTableAdapter" GeneratorDataComponentClassName="SP_CONSULTAR_PRODUCTOSTableAdapter" Name="SP_CONSULTAR_PRODUCTOS" UserDataComponentName="SP_CONSULTAR_PRODUCTOSTableAdapter">
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SP_CONSULTAR_PRODUCTOS1TableAdapter" GeneratorDataComponentClassName="SP_CONSULTAR_PRODUCTOS1TableAdapter" Name="SP_CONSULTAR_PRODUCTOS1" UserDataComponentName="SP_CONSULTAR_PRODUCTOS1TableAdapter">
             <MainSource>
               <DbSource ConnectionRef="CARPINTERIA_2023ConnectionString (Settings)" DbObjectName="CARPINTERIA_2023.dbo.SP_CONSULTAR_PRODUCTOS" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
@@ -33,10 +33,10 @@
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
-  <xs:element name="DSProductos" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_UserDSName="DSProductos" msprop:Generator_DataSetName="DSProductos">
+  <xs:element name="DSProductos" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DSProductos" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DSProductos">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="SP_CONSULTAR_PRODUCTOS" msprop:Generator_RowEvHandlerName="SP_CONSULTAR_PRODUCTOSRowChangeEventHandler" msprop:Generator_RowDeletedName="SP_CONSULTAR_PRODUCTOSRowDeleted" msprop:Generator_RowDeletingName="SP_CONSULTAR_PRODUCTOSRowDeleting" msprop:Generator_RowEvArgName="SP_CONSULTAR_PRODUCTOSRowChangeEvent" msprop:Generator_TablePropName="SP_CONSULTAR_PRODUCTOS" msprop:Generator_RowChangedName="SP_CONSULTAR_PRODUCTOSRowChanged" msprop:Generator_RowChangingName="SP_CONSULTAR_PRODUCTOSRowChanging" msprop:Generator_TableClassName="SP_CONSULTAR_PRODUCTOSDataTable" msprop:Generator_RowClassName="SP_CONSULTAR_PRODUCTOSRow" msprop:Generator_TableVarName="tableSP_CONSULTAR_PRODUCTOS" msprop:Generator_UserTableName="SP_CONSULTAR_PRODUCTOS">
+        <xs:element name="SP_CONSULTAR_PRODUCTOS1" msprop:Generator_RowEvHandlerName="SP_CONSULTAR_PRODUCTOS1RowChangeEventHandler" msprop:Generator_RowDeletedName="SP_CONSULTAR_PRODUCTOS1RowDeleted" msprop:Generator_RowDeletingName="SP_CONSULTAR_PRODUCTOS1RowDeleting" msprop:Generator_RowEvArgName="SP_CONSULTAR_PRODUCTOS1RowChangeEvent" msprop:Generator_TablePropName="SP_CONSULTAR_PRODUCTOS1" msprop:Generator_RowChangedName="SP_CONSULTAR_PRODUCTOS1RowChanged" msprop:Generator_RowChangingName="SP_CONSULTAR_PRODUCTOS1RowChanging" msprop:Generator_TableClassName="SP_CONSULTAR_PRODUCTOS1DataTable" msprop:Generator_RowClassName="SP_CONSULTAR_PRODUCTOS1Row" msprop:Generator_TableVarName="tableSP_CONSULTAR_PRODUCTOS1" msprop:Generator_UserTableName="SP_CONSULTAR_PRODUCTOS1">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id_producto" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInRow="id_producto" msprop:Generator_ColumnPropNameInTable="id_productoColumn" msprop:Generator_ColumnVarNameInTable="columnid_producto" msprop:Generator_UserColumnName="id_producto" type="xs:int" />
@@ -61,7 +61,7 @@
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
-      <xs:selector xpath=".//mstns:SP_CONSULTAR_PRODUCTOS" />
+      <xs:selector xpath=".//mstns:SP_CONSULTAR_PRODUCTOS1" />
       <xs:field xpath="mstns:id_producto" />
     </xs:unique>
   </xs:element>

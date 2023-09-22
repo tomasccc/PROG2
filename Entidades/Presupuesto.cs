@@ -10,9 +10,8 @@ using System.Windows.Forms;
 
 namespace Carpinteria1w2.Entidades
 {
-    internal class Presupuesto
+    public class Presupuesto
     {
-        string cadenaconexion = @"Data Source=172.16.10.196;Initial Catalog=Carpinteria_2023;User ID=alumno1w1; Password=alumno1w1";
         public Presupuesto()
         {
             Detalles = new List<DetallePresupuesto>();
@@ -50,8 +49,6 @@ namespace Carpinteria1w2.Entidades
             }
             return total;
         }
-
-        
 
     }
 }

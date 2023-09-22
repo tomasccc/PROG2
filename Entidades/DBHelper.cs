@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Carpinteria1w2.Datos.Implementacion;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -10,16 +11,15 @@ namespace Carpinteria1w2.Entidades
 {
     internal class DBHelper
     {
-        SqlConnection conn;
         //string cadenaconexion = @"Data Source=172.16.10.196;Initial Catalog=Carpinteria_2023;User ID=alumno1w1;Password=alumno1w1";
         string cadenaconexion=@"Data Source=DESKTOP-KFQ7MV9\SQLEXPRESS;Initial Catalog=CARPINTERIA_2023;Integrated Security=True";
-        //Data Source=172.16.10.196;Initial Catalog=Carpinteria_2023;User ID=alumno1w1;Password=alumno1w1
+        SqlConnection conn=new SqlConnection();
 
         public DBHelper()
         {
             conn = new SqlConnection(cadenaconexion);
         }
-        public int ProximoPresupuesto()
+        /*public int ProximoPresupuesto()
         {
             SqlCommand cmd = new SqlCommand("SP_PROXIMO_ID", conn);
             cmd.CommandType = CommandType.StoredProcedure;
@@ -32,7 +32,7 @@ namespace Carpinteria1w2.Entidades
             cmd.ExecuteNonQuery();
             conn.Close();
             return (int)param.Value;
-        }
+        }*/
 
         public DataTable Consultar(string nombreSP)
         {
@@ -47,35 +47,60 @@ namespace Carpinteria1w2.Entidades
             return dt;
         }
         //INSERTAR PRESUPUESTO
-        public int Insertar(string nombreSP,Presupuesto p)
+        public bool Insertar(string nombreSP,Presupuesto p)
         {
-            SqlConnection con = new SqlConnection(cadenaconexion);
-            SqlCommand cmd = new SqlCommand(nombreSP, con);
-            cmd.CommandType = CommandType.StoredProcedure;
-            
-            SqlParameter presu_nro = new SqlParameter();
-
-            presu_nro.ParameterName = "@presupuesto_nro";
-            presu_nro.DbType = DbType.Int32;
-            presu_nro.Direction = ParameterDirection.Output;
-
-            cmd.Parameters.AddWithValue("@cliente", p.Cliente);
-            cmd.Parameters.AddWithValue("@dto", p.Descuento);
-            cmd.Parameters.AddWithValue("@total", p.CalcularTotal());
-            cmd.Parameters.Add(presu_nro);
-            
-
-            con.Open();
-            cmd.ExecuteNonQuery();
-            int presupuestonro = (int)presu_nro.Value;
-            con.Close();
-            int detallenro = 1;
-            foreach (DetallePresupuesto dp in p.Detalles)
+            conn.ConnectionString = cadenaconexion;
+            bool resultado = true;
+            SqlTransaction t = null;
+            try
             {
-                AgregarDetalle(dp, presupuestonro,p,detallenro);
-                detallenro++;
+                conn.Open();
+                t = conn.BeginTransaction();
+                SqlCommand cmd = new SqlCommand(nombreSP, conn,t);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter presu_nro = new SqlParameter();
+
+                presu_nro.ParameterName = "@presupuesto_nro";
+                presu_nro.DbType = DbType.Int32;
+                presu_nro.Direction = ParameterDirection.Output;
+
+                cmd.Parameters.AddWithValue("@cliente", p.Cliente);
+                cmd.Parameters.AddWithValue("@dto", p.Descuento);
+                cmd.Parameters.AddWithValue("@total", p.CalcularTotal());
+                cmd.Parameters.Add(presu_nro);
+
+                cmd.ExecuteNonQuery();
+                int presupuestonro = (int)presu_nro.Value;
+                int detallenro = 1;
+                SqlCommand cmdDetalle;
+                foreach (DetallePresupuesto dp in p.Detalles)
+                {
+                    cmdDetalle = new SqlCommand("SP_INSERTAR_DETALLE", conn, t);
+                    cmdDetalle.CommandType = CommandType.StoredProcedure;
+                    cmdDetalle.Parameters.AddWithValue("@presupuesto_nro", presupuestonro);
+                    cmdDetalle.Parameters.AddWithValue("@detalle", detallenro);
+                    cmdDetalle.Parameters.AddWithValue("@id_producto", dp.Producto.ProductoNro);
+                    cmdDetalle.Parameters.AddWithValue("@cantidad", dp.Cantidad);
+                    cmdDetalle.ExecuteNonQuery();
+                    detallenro++;
+                }
+                t.Commit();
+            }catch (Exception)
+            {
+                if(t!=null)
+                {
+                    t.Rollback();
+                }
+
+                resultado = false;
             }
-            return presupuestonro;
+            finally
+            {
+                if (conn!=null && conn.State==ConnectionState.Open)
+                    conn.Close();
+            }
+                return resultado;
         }
 
         public void AgregarDetalle(DetallePresupuesto d, int presu,Presupuesto p,int detallenro)
@@ -86,7 +111,6 @@ namespace Carpinteria1w2.Entidades
             SqlParameter detalle = new SqlParameter("@detalle", detallenro);
             SqlParameter presu_nro = new SqlParameter("@presupuesto_nro", presu);
             SqlParameter cantidad = new SqlParameter("@cantidad", d.Cantidad);
-            conn.Open();
 
             presu_nro.DbType = DbType.Int32;
             presu_nro.Direction = ParameterDirection.Input;
@@ -105,27 +129,115 @@ namespace Carpinteria1w2.Entidades
             cmd.Parameters.Add(cantidad);
 
             cmd.ExecuteNonQuery();
-            conn.Close();
         }
 
+        //CONSULTAR PRESU
         public DataTable ConsultarConParametros(string nombreSP,List<Parametro> parametros)
         {
-            DataTable dt = new DataTable();
-            SqlConnection con = new SqlConnection(cadenaconexion);
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = conn;
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.CommandText = nombreSP;
-            cmd.Parameters.Clear();
-            con.Open();
-            foreach (Parametro p in parametros)
+            /*DataTable dt = new DataTable();
+            SqlConnection conn = new SqlConnection(cadenaconexion);
+            SqlTransaction transaction = null;
+            try
             {
-                cmd.Parameters.AddWithValue(p.nombre, p.valor);
+                transaction = conn.BeginTransaction();
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = nombreSP;
+                conn.Open();
+                foreach (Parametro p in parametros)
+                {
+                    cmd.Parameters.AddWithValue(p.pNombre, p.pValor);
+                }
+                dt.Load(cmd.ExecuteReader());
+                transaction.Commit();
+            }catch (Exception ex) {
+                //transaction.Rollback();
             }
-            dt.Load(cmd.ExecuteReader());
-            con.Close();
+            finally
+            {
+                if(conn!=null && conn.State==ConnectionState.Open)
+                    conn.Close();
+            }
+            return dt;*/
+            DataTable tabla = new DataTable();
 
-            return dt;
+            conn.Open();
+            SqlCommand cmd = new SqlCommand(nombreSP, conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            if (parametros != null)
+            {
+                foreach (Parametro oParametro in parametros)
+                {
+                    cmd.Parameters.AddWithValue(oParametro.pNombre, oParametro.pValor);
+                }
+            }
+            tabla.Load(cmd.ExecuteReader());
+            conn.Close();
+
+            return tabla;
+        }
+
+        public bool Ejecutar(string nombreSP) {
+            bool res = false;
+            SqlTransaction trans = null;
+            try
+            {
+                SqlCommand cmd = new SqlCommand(nombreSP, conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                trans=conn.BeginTransaction();
+                conn.Open();
+                int afectadas=cmd.ExecuteNonQuery();
+                if (afectadas>0)
+                {
+                    res = true;
+                    trans.Commit();
+                }else
+                    trans.Rollback();
+            } catch (Exception ex)
+            {
+                trans.Rollback();
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return res;
+        }
+
+
+        public bool EjecutarConParametros(string nombreSP,List<Parametro> parametros)
+        {
+            bool res = false;
+            SqlTransaction trans = null;
+            try
+            {
+                SqlCommand cmd = new SqlCommand(nombreSP, conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                trans = conn.BeginTransaction();
+                conn.Open();
+                foreach (Parametro param in parametros) { 
+                    cmd.Parameters.AddWithValue(param.pNombre,param.pValor);
+                }
+                int afectadas = cmd.ExecuteNonQuery();
+                if (afectadas > 0)
+                {
+                    trans.Commit();
+                    res = true;
+                }
+                else
+                    trans.Rollback();
+            }
+            catch (Exception)
+            {
+                trans.Rollback();
+                res = false;
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return res;
         }
 
     }

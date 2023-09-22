@@ -1,4 +1,6 @@
-﻿using Carpinteria1w2.Entidades;
+﻿using Carpinteria1w2.Datos.Implementacion;
+using Carpinteria1w2.Datos.Interfaz;
+using Carpinteria1w2.Entidades;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,18 +14,19 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Carpinteria1w2
-{/*MAL EL NOMBRE DE ESTE FORM
-  * CONSULTAR PRODUCTOS = NUEVO PRESUPUESTO ||*/
-    public partial class FormConsultarProductos : Form
+{
+    public partial class FormNuevoPresupuesto : Form
     {
+        IPresupuestoDAO pd = null;
         DBHelper dbHelper = new DBHelper();
         Presupuesto presu;
         List<Producto> productos=new List<Producto>();
         
 
-        public FormConsultarProductos()
+        public FormNuevoPresupuesto()
         {
             InitializeComponent();
+            pd=new PresupuestoDAO();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -34,8 +37,16 @@ namespace Carpinteria1w2
         private bool Validar()
         {
             if (string.IsNullOrEmpty(txtcantidad.Text) || !int.TryParse(txtcantidad.Text, out _))
+            {
                 MessageBox.Show("Debe ingresar una cantidad", "Agregar", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            return true;
+                return false;
+            }
+            if (string.IsNullOrEmpty(txtboxdescuento.Text))
+            {
+                MessageBox.Show("Debe ingresar un descuento", "Agregar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return false;
+            }
+                return true;
         }
 
         //BOTON AGREGAR
@@ -77,10 +88,6 @@ namespace Carpinteria1w2
             }
         }
 
-        public void QuitarDetalle()
-        {
-
-        }
         private void CalcularTotales()
         {
             txtboxSubtotal.Text = presu.CalcularTotal().ToString();
@@ -90,12 +97,13 @@ namespace Carpinteria1w2
 
         private void FormConsultarProductos_Load(object sender, EventArgs e)
         {
+            //
             presu=new Presupuesto();
             txtboxFecha.Text = DateTime.Today.ToShortDateString();
             txtboxcliente.Text = "Consumidor Final";
             txtboxdescuento.Text = "0";
             txtcantidad.Text = "1";
-            lblpresupuestonro.Text = lblpresupuestonro.Text + " " + dbHelper.ProximoPresupuesto(); 
+            lblpresupuestonro.Text = lblpresupuestonro.Text + " " + pd.ObtenerProximoPresupuesto().ToString(); 
             CargarProductos();
         }
 
@@ -109,11 +117,19 @@ namespace Carpinteria1w2
             comboBoxprod.ValueMember = dt.Columns[0].ColumnName;
             comboBoxprod.DisplayMember = dt.Columns[1].ColumnName;
             comboBoxprod.DropDownStyle = ComboBoxStyle.DropDownList;
-        } 
+        }
 
         private void DGVdetalles_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            
 
+            if (DGVdetalles.CurrentCell.ColumnIndex == 4)
+            {
+                presu.Detalles.RemoveAt(DGVdetalles.CurrentRow.Index);
+                DGVdetalles.Rows.Remove(DGVdetalles.CurrentRow);
+                CalcularTotales();
+            } 
+            
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
@@ -121,16 +137,15 @@ namespace Carpinteria1w2
             //validar
             if (string.IsNullOrEmpty(txtboxcliente.Text))
             {
-                MessageBox.Show("ingrese un cliente");
+                MessageBox.Show("Debe ingresar un cliente");
                 return;
             }
             if (DGVdetalles.Rows.Count==0)
             {
-                MessageBox.Show("ingrese un detalle");
+                MessageBox.Show("Debe ingresar un detalle");
                 return;
             }
             GrabarPresupuesto();
-            //grabar
         }
 
         private void GrabarPresupuesto()
@@ -138,12 +153,17 @@ namespace Carpinteria1w2
             presu.Fecha = Convert.ToDateTime(txtboxFecha.Text);
             presu.Cliente = txtboxcliente.Text;
             presu.Descuento = Convert.ToDouble(txtboxdescuento.Text);
-            int afectadas=dbHelper.Insertar("SP_INSERTAR_MAESTRO",presu);
-            if (afectadas > 0)
+            if (dbHelper.Insertar("SP_INSERTAR_MAESTRO", presu))
             {
                 MessageBox.Show("El presupuesto se grabó con éxito");
                 this.Dispose();
-            }
+            }else
+                MessageBox.Show("El presupuesto no pudo ser registrado","ERROR",MessageBoxButtons.OK,MessageBoxIcon.Error);
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Dispose();    
         }
     }
 }

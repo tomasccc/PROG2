@@ -24,7 +24,7 @@ namespace Carpinteria1w2.Presentacion.Reportes {
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
     public partial class DSProductos : global::System.Data.DataSet {
         
-        private SP_CONSULTAR_PRODUCTOSDataTable tableSP_CONSULTAR_PRODUCTOS;
+        private SP_CONSULTAR_PRODUCTOS1DataTable tableSP_CONSULTAR_PRODUCTOS1;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -54,8 +54,8 @@ namespace Carpinteria1w2.Presentacion.Reportes {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["SP_CONSULTAR_PRODUCTOS"] != null)) {
-                    base.Tables.Add(new SP_CONSULTAR_PRODUCTOSDataTable(ds.Tables["SP_CONSULTAR_PRODUCTOS"]));
+                if ((ds.Tables["SP_CONSULTAR_PRODUCTOS1"] != null)) {
+                    base.Tables.Add(new SP_CONSULTAR_PRODUCTOS1DataTable(ds.Tables["SP_CONSULTAR_PRODUCTOS1"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace Carpinteria1w2.Presentacion.Reportes {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public SP_CONSULTAR_PRODUCTOSDataTable SP_CONSULTAR_PRODUCTOS {
+        public SP_CONSULTAR_PRODUCTOS1DataTable SP_CONSULTAR_PRODUCTOS1 {
             get {
-                return this.tableSP_CONSULTAR_PRODUCTOS;
+                return this.tableSP_CONSULTAR_PRODUCTOS1;
             }
         }
         
@@ -152,8 +152,8 @@ namespace Carpinteria1w2.Presentacion.Reportes {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["SP_CONSULTAR_PRODUCTOS"] != null)) {
-                    base.Tables.Add(new SP_CONSULTAR_PRODUCTOSDataTable(ds.Tables["SP_CONSULTAR_PRODUCTOS"]));
+                if ((ds.Tables["SP_CONSULTAR_PRODUCTOS1"] != null)) {
+                    base.Tables.Add(new SP_CONSULTAR_PRODUCTOS1DataTable(ds.Tables["SP_CONSULTAR_PRODUCTOS1"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace Carpinteria1w2.Presentacion.Reportes {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tableSP_CONSULTAR_PRODUCTOS = ((SP_CONSULTAR_PRODUCTOSDataTable)(base.Tables["SP_CONSULTAR_PRODUCTOS"]));
+            this.tableSP_CONSULTAR_PRODUCTOS1 = ((SP_CONSULTAR_PRODUCTOS1DataTable)(base.Tables["SP_CONSULTAR_PRODUCTOS1"]));
             if ((initTable == true)) {
-                if ((this.tableSP_CONSULTAR_PRODUCTOS != null)) {
-                    this.tableSP_CONSULTAR_PRODUCTOS.InitVars();
+                if ((this.tableSP_CONSULTAR_PRODUCTOS1 != null)) {
+                    this.tableSP_CONSULTAR_PRODUCTOS1.InitVars();
                 }
             }
         }
@@ -204,13 +204,13 @@ namespace Carpinteria1w2.Presentacion.Reportes {
             this.Namespace = "http://tempuri.org/DSProductos.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableSP_CONSULTAR_PRODUCTOS = new SP_CONSULTAR_PRODUCTOSDataTable();
-            base.Tables.Add(this.tableSP_CONSULTAR_PRODUCTOS);
+            this.tableSP_CONSULTAR_PRODUCTOS1 = new SP_CONSULTAR_PRODUCTOS1DataTable();
+            base.Tables.Add(this.tableSP_CONSULTAR_PRODUCTOS1);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private bool ShouldSerializeSP_CONSULTAR_PRODUCTOS() {
+        private bool ShouldSerializeSP_CONSULTAR_PRODUCTOS1() {
             return false;
         }
         
@@ -270,14 +270,14 @@ namespace Carpinteria1w2.Presentacion.Reportes {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public delegate void SP_CONSULTAR_PRODUCTOSRowChangeEventHandler(object sender, SP_CONSULTAR_PRODUCTOSRowChangeEvent e);
+        public delegate void SP_CONSULTAR_PRODUCTOS1RowChangeEventHandler(object sender, SP_CONSULTAR_PRODUCTOS1RowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class SP_CONSULTAR_PRODUCTOSDataTable : global::System.Data.TypedTableBase<SP_CONSULTAR_PRODUCTOSRow> {
+        public partial class SP_CONSULTAR_PRODUCTOS1DataTable : global::System.Data.TypedTableBase<SP_CONSULTAR_PRODUCTOS1Row> {
             
             private global::System.Data.DataColumn columnid_producto;
             
@@ -289,8 +289,8 @@ namespace Carpinteria1w2.Presentacion.Reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public SP_CONSULTAR_PRODUCTOSDataTable() {
-                this.TableName = "SP_CONSULTAR_PRODUCTOS";
+            public SP_CONSULTAR_PRODUCTOS1DataTable() {
+                this.TableName = "SP_CONSULTAR_PRODUCTOS1";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -298,7 +298,7 @@ namespace Carpinteria1w2.Presentacion.Reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal SP_CONSULTAR_PRODUCTOSDataTable(global::System.Data.DataTable table) {
+            internal SP_CONSULTAR_PRODUCTOS1DataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -315,7 +315,7 @@ namespace Carpinteria1w2.Presentacion.Reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected SP_CONSULTAR_PRODUCTOSDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected SP_CONSULTAR_PRODUCTOS1DataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -363,55 +363,55 @@ namespace Carpinteria1w2.Presentacion.Reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public SP_CONSULTAR_PRODUCTOSRow this[int index] {
+            public SP_CONSULTAR_PRODUCTOS1Row this[int index] {
                 get {
-                    return ((SP_CONSULTAR_PRODUCTOSRow)(this.Rows[index]));
+                    return ((SP_CONSULTAR_PRODUCTOS1Row)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event SP_CONSULTAR_PRODUCTOSRowChangeEventHandler SP_CONSULTAR_PRODUCTOSRowChanging;
+            public event SP_CONSULTAR_PRODUCTOS1RowChangeEventHandler SP_CONSULTAR_PRODUCTOS1RowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event SP_CONSULTAR_PRODUCTOSRowChangeEventHandler SP_CONSULTAR_PRODUCTOSRowChanged;
+            public event SP_CONSULTAR_PRODUCTOS1RowChangeEventHandler SP_CONSULTAR_PRODUCTOS1RowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event SP_CONSULTAR_PRODUCTOSRowChangeEventHandler SP_CONSULTAR_PRODUCTOSRowDeleting;
+            public event SP_CONSULTAR_PRODUCTOS1RowChangeEventHandler SP_CONSULTAR_PRODUCTOS1RowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event SP_CONSULTAR_PRODUCTOSRowChangeEventHandler SP_CONSULTAR_PRODUCTOSRowDeleted;
+            public event SP_CONSULTAR_PRODUCTOS1RowChangeEventHandler SP_CONSULTAR_PRODUCTOS1RowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void AddSP_CONSULTAR_PRODUCTOSRow(SP_CONSULTAR_PRODUCTOSRow row) {
+            public void AddSP_CONSULTAR_PRODUCTOS1Row(SP_CONSULTAR_PRODUCTOS1Row row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public SP_CONSULTAR_PRODUCTOSRow AddSP_CONSULTAR_PRODUCTOSRow(string n_producto, decimal precio, string activo) {
-                SP_CONSULTAR_PRODUCTOSRow rowSP_CONSULTAR_PRODUCTOSRow = ((SP_CONSULTAR_PRODUCTOSRow)(this.NewRow()));
+            public SP_CONSULTAR_PRODUCTOS1Row AddSP_CONSULTAR_PRODUCTOS1Row(string n_producto, decimal precio, string activo) {
+                SP_CONSULTAR_PRODUCTOS1Row rowSP_CONSULTAR_PRODUCTOS1Row = ((SP_CONSULTAR_PRODUCTOS1Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         n_producto,
                         precio,
                         activo};
-                rowSP_CONSULTAR_PRODUCTOSRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowSP_CONSULTAR_PRODUCTOSRow);
-                return rowSP_CONSULTAR_PRODUCTOSRow;
+                rowSP_CONSULTAR_PRODUCTOS1Row.ItemArray = columnValuesArray;
+                this.Rows.Add(rowSP_CONSULTAR_PRODUCTOS1Row);
+                return rowSP_CONSULTAR_PRODUCTOS1Row;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public SP_CONSULTAR_PRODUCTOSRow FindByid_producto(int id_producto) {
-                return ((SP_CONSULTAR_PRODUCTOSRow)(this.Rows.Find(new object[] {
+            public SP_CONSULTAR_PRODUCTOS1Row FindByid_producto(int id_producto) {
+                return ((SP_CONSULTAR_PRODUCTOS1Row)(this.Rows.Find(new object[] {
                             id_producto})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                SP_CONSULTAR_PRODUCTOSDataTable cln = ((SP_CONSULTAR_PRODUCTOSDataTable)(base.Clone()));
+                SP_CONSULTAR_PRODUCTOS1DataTable cln = ((SP_CONSULTAR_PRODUCTOS1DataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -419,7 +419,7 @@ namespace Carpinteria1w2.Presentacion.Reportes {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new SP_CONSULTAR_PRODUCTOSDataTable();
+                return new SP_CONSULTAR_PRODUCTOS1DataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -459,28 +459,28 @@ namespace Carpinteria1w2.Presentacion.Reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public SP_CONSULTAR_PRODUCTOSRow NewSP_CONSULTAR_PRODUCTOSRow() {
-                return ((SP_CONSULTAR_PRODUCTOSRow)(this.NewRow()));
+            public SP_CONSULTAR_PRODUCTOS1Row NewSP_CONSULTAR_PRODUCTOS1Row() {
+                return ((SP_CONSULTAR_PRODUCTOS1Row)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new SP_CONSULTAR_PRODUCTOSRow(builder);
+                return new SP_CONSULTAR_PRODUCTOS1Row(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(SP_CONSULTAR_PRODUCTOSRow);
+                return typeof(SP_CONSULTAR_PRODUCTOS1Row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.SP_CONSULTAR_PRODUCTOSRowChanged != null)) {
-                    this.SP_CONSULTAR_PRODUCTOSRowChanged(this, new SP_CONSULTAR_PRODUCTOSRowChangeEvent(((SP_CONSULTAR_PRODUCTOSRow)(e.Row)), e.Action));
+                if ((this.SP_CONSULTAR_PRODUCTOS1RowChanged != null)) {
+                    this.SP_CONSULTAR_PRODUCTOS1RowChanged(this, new SP_CONSULTAR_PRODUCTOS1RowChangeEvent(((SP_CONSULTAR_PRODUCTOS1Row)(e.Row)), e.Action));
                 }
             }
             
@@ -488,8 +488,8 @@ namespace Carpinteria1w2.Presentacion.Reportes {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.SP_CONSULTAR_PRODUCTOSRowChanging != null)) {
-                    this.SP_CONSULTAR_PRODUCTOSRowChanging(this, new SP_CONSULTAR_PRODUCTOSRowChangeEvent(((SP_CONSULTAR_PRODUCTOSRow)(e.Row)), e.Action));
+                if ((this.SP_CONSULTAR_PRODUCTOS1RowChanging != null)) {
+                    this.SP_CONSULTAR_PRODUCTOS1RowChanging(this, new SP_CONSULTAR_PRODUCTOS1RowChangeEvent(((SP_CONSULTAR_PRODUCTOS1Row)(e.Row)), e.Action));
                 }
             }
             
@@ -497,8 +497,8 @@ namespace Carpinteria1w2.Presentacion.Reportes {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.SP_CONSULTAR_PRODUCTOSRowDeleted != null)) {
-                    this.SP_CONSULTAR_PRODUCTOSRowDeleted(this, new SP_CONSULTAR_PRODUCTOSRowChangeEvent(((SP_CONSULTAR_PRODUCTOSRow)(e.Row)), e.Action));
+                if ((this.SP_CONSULTAR_PRODUCTOS1RowDeleted != null)) {
+                    this.SP_CONSULTAR_PRODUCTOS1RowDeleted(this, new SP_CONSULTAR_PRODUCTOS1RowChangeEvent(((SP_CONSULTAR_PRODUCTOS1Row)(e.Row)), e.Action));
                 }
             }
             
@@ -506,14 +506,14 @@ namespace Carpinteria1w2.Presentacion.Reportes {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.SP_CONSULTAR_PRODUCTOSRowDeleting != null)) {
-                    this.SP_CONSULTAR_PRODUCTOSRowDeleting(this, new SP_CONSULTAR_PRODUCTOSRowChangeEvent(((SP_CONSULTAR_PRODUCTOSRow)(e.Row)), e.Action));
+                if ((this.SP_CONSULTAR_PRODUCTOS1RowDeleting != null)) {
+                    this.SP_CONSULTAR_PRODUCTOS1RowDeleting(this, new SP_CONSULTAR_PRODUCTOS1RowChangeEvent(((SP_CONSULTAR_PRODUCTOS1Row)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void RemoveSP_CONSULTAR_PRODUCTOSRow(SP_CONSULTAR_PRODUCTOSRow row) {
+            public void RemoveSP_CONSULTAR_PRODUCTOS1Row(SP_CONSULTAR_PRODUCTOS1Row row) {
                 this.Rows.Remove(row);
             }
             
@@ -540,7 +540,7 @@ namespace Carpinteria1w2.Presentacion.Reportes {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "SP_CONSULTAR_PRODUCTOSDataTable";
+                attribute2.FixedValue = "SP_CONSULTAR_PRODUCTOS1DataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -584,25 +584,25 @@ namespace Carpinteria1w2.Presentacion.Reportes {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class SP_CONSULTAR_PRODUCTOSRow : global::System.Data.DataRow {
+        public partial class SP_CONSULTAR_PRODUCTOS1Row : global::System.Data.DataRow {
             
-            private SP_CONSULTAR_PRODUCTOSDataTable tableSP_CONSULTAR_PRODUCTOS;
+            private SP_CONSULTAR_PRODUCTOS1DataTable tableSP_CONSULTAR_PRODUCTOS1;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal SP_CONSULTAR_PRODUCTOSRow(global::System.Data.DataRowBuilder rb) : 
+            internal SP_CONSULTAR_PRODUCTOS1Row(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableSP_CONSULTAR_PRODUCTOS = ((SP_CONSULTAR_PRODUCTOSDataTable)(this.Table));
+                this.tableSP_CONSULTAR_PRODUCTOS1 = ((SP_CONSULTAR_PRODUCTOS1DataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public int id_producto {
                 get {
-                    return ((int)(this[this.tableSP_CONSULTAR_PRODUCTOS.id_productoColumn]));
+                    return ((int)(this[this.tableSP_CONSULTAR_PRODUCTOS1.id_productoColumn]));
                 }
                 set {
-                    this[this.tableSP_CONSULTAR_PRODUCTOS.id_productoColumn] = value;
+                    this[this.tableSP_CONSULTAR_PRODUCTOS1.id_productoColumn] = value;
                 }
             }
             
@@ -610,10 +610,10 @@ namespace Carpinteria1w2.Presentacion.Reportes {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string n_producto {
                 get {
-                    return ((string)(this[this.tableSP_CONSULTAR_PRODUCTOS.n_productoColumn]));
+                    return ((string)(this[this.tableSP_CONSULTAR_PRODUCTOS1.n_productoColumn]));
                 }
                 set {
-                    this[this.tableSP_CONSULTAR_PRODUCTOS.n_productoColumn] = value;
+                    this[this.tableSP_CONSULTAR_PRODUCTOS1.n_productoColumn] = value;
                 }
             }
             
@@ -621,10 +621,10 @@ namespace Carpinteria1w2.Presentacion.Reportes {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public decimal precio {
                 get {
-                    return ((decimal)(this[this.tableSP_CONSULTAR_PRODUCTOS.precioColumn]));
+                    return ((decimal)(this[this.tableSP_CONSULTAR_PRODUCTOS1.precioColumn]));
                 }
                 set {
-                    this[this.tableSP_CONSULTAR_PRODUCTOS.precioColumn] = value;
+                    this[this.tableSP_CONSULTAR_PRODUCTOS1.precioColumn] = value;
                 }
             }
             
@@ -632,10 +632,10 @@ namespace Carpinteria1w2.Presentacion.Reportes {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string activo {
                 get {
-                    return ((string)(this[this.tableSP_CONSULTAR_PRODUCTOS.activoColumn]));
+                    return ((string)(this[this.tableSP_CONSULTAR_PRODUCTOS1.activoColumn]));
                 }
                 set {
-                    this[this.tableSP_CONSULTAR_PRODUCTOS.activoColumn] = value;
+                    this[this.tableSP_CONSULTAR_PRODUCTOS1.activoColumn] = value;
                 }
             }
         }
@@ -644,22 +644,22 @@ namespace Carpinteria1w2.Presentacion.Reportes {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public class SP_CONSULTAR_PRODUCTOSRowChangeEvent : global::System.EventArgs {
+        public class SP_CONSULTAR_PRODUCTOS1RowChangeEvent : global::System.EventArgs {
             
-            private SP_CONSULTAR_PRODUCTOSRow eventRow;
+            private SP_CONSULTAR_PRODUCTOS1Row eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public SP_CONSULTAR_PRODUCTOSRowChangeEvent(SP_CONSULTAR_PRODUCTOSRow row, global::System.Data.DataRowAction action) {
+            public SP_CONSULTAR_PRODUCTOS1RowChangeEvent(SP_CONSULTAR_PRODUCTOS1Row row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public SP_CONSULTAR_PRODUCTOSRow Row {
+            public SP_CONSULTAR_PRODUCTOS1Row Row {
                 get {
                     return this.eventRow;
                 }
@@ -687,7 +687,7 @@ namespace Carpinteria1w2.Presentacion.Reportes.DSProductosTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class SP_CONSULTAR_PRODUCTOSTableAdapter : global::System.ComponentModel.Component {
+    public partial class SP_CONSULTAR_PRODUCTOS1TableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -701,7 +701,7 @@ namespace Carpinteria1w2.Presentacion.Reportes.DSProductosTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public SP_CONSULTAR_PRODUCTOSTableAdapter() {
+        public SP_CONSULTAR_PRODUCTOS1TableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -798,7 +798,7 @@ namespace Carpinteria1w2.Presentacion.Reportes.DSProductosTableAdapters {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "SP_CONSULTAR_PRODUCTOS";
+            tableMapping.DataSetTable = "SP_CONSULTAR_PRODUCTOS1";
             tableMapping.ColumnMappings.Add("id_producto", "id_producto");
             tableMapping.ColumnMappings.Add("n_producto", "n_producto");
             tableMapping.ColumnMappings.Add("precio", "precio");
@@ -828,7 +828,7 @@ namespace Carpinteria1w2.Presentacion.Reportes.DSProductosTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(DSProductos.SP_CONSULTAR_PRODUCTOSDataTable dataTable) {
+        public virtual int Fill(DSProductos.SP_CONSULTAR_PRODUCTOS1DataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -841,9 +841,9 @@ namespace Carpinteria1w2.Presentacion.Reportes.DSProductosTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual DSProductos.SP_CONSULTAR_PRODUCTOSDataTable GetData() {
+        public virtual DSProductos.SP_CONSULTAR_PRODUCTOS1DataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            DSProductos.SP_CONSULTAR_PRODUCTOSDataTable dataTable = new DSProductos.SP_CONSULTAR_PRODUCTOSDataTable();
+            DSProductos.SP_CONSULTAR_PRODUCTOS1DataTable dataTable = new DSProductos.SP_CONSULTAR_PRODUCTOS1DataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }

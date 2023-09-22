@@ -1,6 +1,6 @@
 ﻿namespace Carpinteria1w2
 {
-    partial class FormConsultarProductos
+    partial class FormNuevoPresupuesto
     {
         /// <summary>
         /// Required designer variable.
@@ -57,6 +57,7 @@
             // 
             this.txtboxFecha.Location = new System.Drawing.Point(121, 72);
             this.txtboxFecha.Name = "txtboxFecha";
+            this.txtboxFecha.ReadOnly = true;
             this.txtboxFecha.Size = new System.Drawing.Size(140, 20);
             this.txtboxFecha.TabIndex = 0;
             this.txtboxFecha.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
@@ -93,7 +94,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(70, 13);
             this.label3.TabIndex = 5;
-            this.label3.Text = "% Descuento";
+            this.label3.Text = "Descuento %";
             // 
             // txtboxdescuento
             // 
@@ -239,8 +240,9 @@
             this.btnCancelar.TabIndex = 16;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // FormConsultarProductos
+            // FormNuevoPresupuesto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -263,7 +265,7 @@
             this.Controls.Add(this.txtboxcliente);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtboxFecha);
-            this.Name = "FormConsultarProductos";
+            this.Name = "FormNuevoPresupuesto";
             this.Text = "text";
             this.Load += new System.EventHandler(this.FormConsultarProductos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DGVdetalles)).EndInit();

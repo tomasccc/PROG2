@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Carpinteria1w2.Presentacion;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,7 +25,7 @@ namespace Carpinteria1w2
 
         private void bToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormConsultarProductos f = new FormConsultarProductos();
+            FormNuevoPresupuesto f = new FormNuevoPresupuesto();
             f.ShowDialog();
         }
 
@@ -33,6 +34,12 @@ namespace Carpinteria1w2
         {
             Consultar f = new Consultar();
             f.ShowDialog();
+        }
+
+        private void productosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormReporteProductos form = new FormReporteProductos();
+            form.ShowDialog();
         }
     }
 }
